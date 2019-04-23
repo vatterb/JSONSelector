@@ -50,12 +50,12 @@ public class JSONSelector
     		else
     			viewClassName=selector.substring(classSeparator+1);
     	}
-    	else if(viewSeparator>0) //starts with identifier
+    	else if(viewSeparator==0) //starts with identifier
     	{
     		if(classSeparator>0) //should not happen but just in case, "." is expected to precede "#"
     		{
-    			viewClassName=selector.substring(classSeparator+1,viewSeparator);
-    			viewIdentifier=selector.substring(viewSeparator+1);
+    			viewIdentifier=selector.substring(viewSeparator+1,classSeparator);
+    			viewClassName=selector.substring(classSeparator+1);
     		}
     		else
     			viewIdentifier=selector.substring(viewSeparator+1);
